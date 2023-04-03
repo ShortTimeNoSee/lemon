@@ -8,8 +8,19 @@ let x = 200,
 const lemonImg = new Image();
 lemonImg.src = 'a lemon.png';
 
+let clickCount = 0;
+
 function drawLemon() {
-    ctx.drawImage(lemonImg, x-20, y-20, 40, 40);
+  const img = new Image();
+  img.onload = function() {
+    ctx.drawImage(img, x-20, y-20, 40, 40);
+  };
+  
+  if (clickCount === 7) {
+    img.src = 'a tomato.png';
+  } else {
+    img.src = 'a lemon.png';
+  }
 }
 
 function clearCanvas() {
@@ -27,6 +38,11 @@ function update() {
 }
 
 setInterval(update, 10);
+
+canvas.addEventListener('click', () => {
+  clickCount++;
+  drawLemon();
+});
 
 document.addEventListener('keydown', (event) => {
     if (event.keyCode === 37) {
