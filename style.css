@@ -21,3 +21,9 @@ canvas {
   bottom: 20px;
   right: 20px;
 }
+
+#reset-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+}
