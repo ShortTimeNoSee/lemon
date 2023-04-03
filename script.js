@@ -8,13 +8,15 @@ let x = 200,
 const lemonImg = new Image();
 lemonImg.src = 'a lemon.png';
 
+const tomatoImg = new Image();
+tomatoImg.src = 'a tomato.png';
+
 let clickCount = 0;
 
 function drawLemon() {
-  const img = new Image();
-  img.onload = function() {
-    ctx.drawImage(img, x-20, y-20, 40, 40);
-  };
+  const img = (clickCount === 7) ? tomatoImg : lemonImg;
+  ctx.drawImage(img, x-20, y-20, 40, 40);
+}
   
   if (clickCount === 7) {
     img.src = 'a tomato.png';
