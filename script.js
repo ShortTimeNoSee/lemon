@@ -6,42 +6,33 @@ let x = 200,
     dy = 0;
 
 function drawLemon() {
-  // Define colors for the lemon
-  const yellow = '#FCD440';
-  const green = '#7EBF80';
-  const darkGreen = '#508F60';
-  const white = '#FFFFFF';
-  
-  // Fill the background with white to ensure contrast
-  ctx.fillStyle = white;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  // Draw the lemon body
-  const lemonGradient = ctx.createRadialGradient(x, y, 10, x, y, 20);
-  lemonGradient.addColorStop(0, yellow);
-  lemonGradient.addColorStop(1, darkGreen);
-  ctx.fillStyle = lemonGradient;
-  ctx.beginPath();
-  ctx.arc(x, y, 20, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Draw the lemon stem
-  const stemGradient = ctx.createLinearGradient(x - 10, y - 15, x - 10, y - 5);
-  stemGradient.addColorStop(0, green);
-  stemGradient.addColorStop(1, darkGreen);
-  ctx.fillStyle = stemGradient;
-  ctx.beginPath();
-  ctx.arc(x - 10, y - 10, 5, 0, Math.PI * 2);
-  ctx.fill();
-  
-  // Add some highlights to the lemon
-  const highlightGradient = ctx.createRadialGradient(x - 5, y - 5, 0, x - 5, y - 5, 10);
-  highlightGradient.addColorStop(0, white);
-  highlightGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-  ctx.fillStyle = highlightGradient;
-  ctx.beginPath();
-  ctx.arc(x - 5, y - 5, 10, 0, Math.PI * 2);
-  ctx.fill();
+    // Define lemon shape
+    let centerX = x;
+    let centerY = y;
+    let radiusX = 25;
+    let radiusY = 15;
+    
+    // Draw lemon
+    ctx.beginPath();
+    ctx.fillStyle = 'yellow';
+    ctx.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Add shading and highlights
+    ctx.beginPath();
+    let gradient = ctx.createRadialGradient(centerX - 10, centerY - 10, 5, centerX, centerY, radiusX);
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
+    gradient.addColorStop(0.3, 'rgba(255, 255, 255, 0.4)');
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0.1)');
+    ctx.fillStyle = gradient;
+    ctx.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Draw stem
+    ctx.beginPath();
+    ctx.fillStyle = 'green';
+    ctx.arc(centerX - 10, centerY - 10, 10, 0, Math.PI * 2);
+    ctx.fill();
 }
 
 
