@@ -16,15 +16,15 @@ canvas {
   color: #eee;
 }
 
-#toggle-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-
 #reset-btn {
   position: fixed;
   bottom: 50px;
+  left: 20px;
+}
+
+#toggle-btn {
+  position: fixed;
+  bottom: 20px;
   right: 20px;
 }
 
