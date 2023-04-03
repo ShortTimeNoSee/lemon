@@ -10,3 +10,8 @@ body {
 canvas {
   border: 1px solid black;
 }
+
+.dark {
+  background-color: #222;
+  color: #eee;
+}
