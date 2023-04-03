@@ -1,3 +1,5 @@
+let lastKeyTime = 0;
+const typedChars = [];
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 let x = 200,
@@ -27,6 +29,18 @@ function update() {
     canvas.height = window.innerHeight;
 
     clearCanvas();
+    if (typedChars.join('') === 'lemon') {
+  const angle = Math.random() * 360;
+  const distance = Math.random() * 50 + 50;
+  const x2 = x + Math.cos(angle) * distance;
+  const y2 = y + Math.sin(angle) * distance;
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(x2, y2);
+  ctx.strokeStyle = '#fff';
+  ctx.lineWidth = 5;
+  ctx.stroke();
+}
     drawLemon();
     x += dx;
     y += dy;
@@ -36,6 +50,7 @@ setInterval(update, 10);
 
 canvas.addEventListener('click', () => {
   clickCount++;
+  typedChars.length = 0;
   drawLemon();
 });
 
@@ -53,6 +68,13 @@ document.addEventListener('keydown', (event) => {
         dy = 4;
         event.preventDefault(); // prevent scrolling down
     }
+    if (event.key.match(/[a-zA-Z]/) && event.timeStamp - lastKeyTime < 1000) {
+  typedChars.push(event.key.toLowerCase());
+  if (typedChars.length > 5) {
+    typedChars.shift();
+  }
+}
+lastKeyTime = event.timeStamp;
 });
 
 document.addEventListener('keyup', (event) => {
