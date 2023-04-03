@@ -6,14 +6,10 @@ let x = 200,
     dy = 0;
 
 const lemonImg = new Image();
-lemonImg.src = 'path/to/lemon.png';
+lemonImg.src = 'a lemon.png';
 
 function drawLemon() {
-    const img = new Image();
-    img.onload = function() {
-        ctx.drawImage(img, x-20, y-20, 40, 40);
-    }
-    img.src = 'a lemon.png';
+    ctx.drawImage(lemonImg, x-20, y-20, 40, 40);
 }
 
 function clearCanvas() {
