@@ -1,39 +1,39 @@
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	padding-bottom: calc(env(safe-area-inset-bottom) + 20px);
 }
 
 canvas {
-  border: 1px solid black;
-  touch-action: manipulation;
+	border: 1px solid black;
+	touch-action: manipulation;
 }
 
 .dark {
-  background-color: #222;
-  color: #eee;
+	background-color: #222;
+	color: #eee;
 }
 
 #reset-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
 }
 
 #toggle-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
 }
 
 #toggle-btn,
 #reset-btn {
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  color: #fff;
-  background-color: #333;
+	font-size: 1.5rem;
+	padding: 0.5rem;
+	color: #fff;
+	background-color: #333;
 }
