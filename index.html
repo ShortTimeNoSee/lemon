@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <head>
-    <title>lemon</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body class="dark">
-    <canvas id="canvas"></canvas>
-    <script src="script.js"></script>
-    <button id="reset-btn">🍋</button>
-    <script>
-    const resetBtn = document.getElementById('reset-btn');
-    resetBtn.addEventListener('click', () => {
-      x = window.innerWidth / 2;
-      y = window.innerHeight / 2;
-     });
-    </script>
-    <button id="toggle-btn">💡</button>
-    <script>
-      const toggleBtn = document.getElementById('toggle-btn');
-      const body = document.body;
-      let isDark = true; // Set isDark to true initially
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-      toggleBtn.addEventListener('click', () => {
-        isDark = !isDark;
-        if (isDark) {
-          body.classList.add('dark');
-        } else {
-          body.classList.remove('dark');
-        }
-      });
-    </script>
-  </body>
+<head>
+	<title>lemon</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark">
+	<canvas id="canvas"></canvas>
+	<script src="script.js"></script>
+	<button id="reset-btn">🍋</button>
+	<script>
+		const resetBtn = document.getElementById('reset-btn');
+		resetBtn.addEventListener('click', () => {
+			x = window.innerWidth / 2;
+			y = window.innerHeight / 2;
+		});
+	</script>
+	<button id="toggle-btn">💡</button>
+	<script>
+		const toggleBtn = document.getElementById('toggle-btn');
+		const body = document.body;
+		let isDark = true; // Set isDark to true initially
+
+		toggleBtn.addEventListener('click', () => {
+			isDark = !isDark;
+			if (isDark) {
+				body.classList.add('dark');
+			} else {
+				body.classList.remove('dark');
+			}
+		});
+	</script>
+</body>
+
 </html>
