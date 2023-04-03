@@ -15,3 +15,9 @@ canvas {
   background-color: #222;
   color: #eee;
 }
+
+#toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
