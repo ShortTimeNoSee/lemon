@@ -62,3 +62,31 @@ document.addEventListener('keyup', (event) => {
         dy = 0;
     }
 });
+
+// Touch controls
+let isTouching = false;
+
+canvas.addEventListener('touchstart', (event) => {
+  isTouching = true;
+  const touch = event.touches[0];
+  x = touch.clientX;
+  y = touch.clientY;
+});
+
+canvas.addEventListener('touchmove', (event) => {
+  if (isTouching) {
+    const touch = event.touches[0];
+    const deltaX = touch.clientX - x;
+    const deltaY = touch.clientY - y;
+    x = touch.clientX;
+    y = touch.clientY;
+    dx = deltaX / 10;
+    dy = deltaY / 10;
+  }
+});
+
+canvas.addEventListener('touchend', () => {
+  isTouching = false;
+  dx = 0;
+  dy = 0;
+});
