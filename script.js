@@ -17,13 +17,6 @@ function drawLemon() {
   const img = (clickCount === 7) ? tomatoImg : lemonImg;
   ctx.drawImage(img, x-20, y-20, 40, 40);
 }
-  
-  if (clickCount === 7) {
-    img.src = 'a tomato.png';
-  } else {
-    img.src = 'a lemon.png';
-  }
-}
 
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
