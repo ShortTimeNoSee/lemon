@@ -5,36 +5,16 @@ let x = 200,
     dx = 0,
     dy = 0;
 
-function drawLemon() {
-    // Define lemon shape
-    let centerX = x;
-    let centerY = y;
-    let radiusX = 25;
-    let radiusY = 15;
-    
-    // Draw lemon
-    ctx.beginPath();
-    ctx.fillStyle = 'yellow';
-    ctx.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, Math.PI * 2);
-    ctx.fill();
-    
-    // Add shading and highlights
-    ctx.beginPath();
-    let gradient = ctx.createRadialGradient(centerX - 10, centerY - 10, 5, centerX, centerY, radiusX);
-    gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
-    gradient.addColorStop(0.3, 'rgba(255, 255, 255, 0.4)');
-    gradient.addColorStop(1, 'rgba(0, 0, 0, 0.1)');
-    ctx.fillStyle = gradient;
-    ctx.ellipse(centerX, centerY, radiusX, radiusY, 0, 0, Math.PI * 2);
-    ctx.fill();
-    
-    // Draw stem
-    ctx.beginPath();
-    ctx.fillStyle = 'green';
-    ctx.arc(centerX - 10, centerY - 10, 10, 0, Math.PI * 2);
-    ctx.fill();
-}
+const lemonImg = new Image();
+lemonImg.src = 'path/to/lemon.png';
 
+function drawLemon() {
+    const img = new Image();
+    img.onload = function() {
+        ctx.drawImage(img, x-20, y-20, 40, 40);
+    }
+    img.src = 'a lemon.png';
+}
 
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
