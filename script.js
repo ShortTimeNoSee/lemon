@@ -35,12 +35,16 @@ setInterval(update, 10);
 document.addEventListener('keydown', (event) => {
     if (event.keyCode === 37) {
         dx = -4;
+        event.preventDefault(); // prevent scrolling left
     } else if (event.keyCode === 38) {
         dy = -4;
+        event.preventDefault(); // prevent scrolling up
     } else if (event.keyCode === 39) {
         dx = 4;
+        event.preventDefault(); // prevent scrolling right
     } else if (event.keyCode === 40) {
         dy = 4;
+        event.preventDefault(); // prevent scrolling down
     }
 });
 
