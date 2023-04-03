@@ -6,15 +6,44 @@ let x = 200,
     dy = 0;
 
 function drawLemon() {
-    ctx.fillStyle = 'yellow';
-    ctx.beginPath();
-    ctx.arc(x, y, 20, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = 'green';
-    ctx.beginPath();
-    ctx.arc(x - 10, y - 10, 10, 0, Math.PI * 2);
-    ctx.fill();
+  // Define colors for the lemon
+  const yellow = '#FCD440';
+  const green = '#7EBF80';
+  const darkGreen = '#508F60';
+  const white = '#FFFFFF';
+  
+  // Fill the background with white to ensure contrast
+  ctx.fillStyle = white;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the lemon body
+  const lemonGradient = ctx.createRadialGradient(x, y, 10, x, y, 20);
+  lemonGradient.addColorStop(0, yellow);
+  lemonGradient.addColorStop(1, darkGreen);
+  ctx.fillStyle = lemonGradient;
+  ctx.beginPath();
+  ctx.arc(x, y, 20, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Draw the lemon stem
+  const stemGradient = ctx.createLinearGradient(x - 10, y - 15, x - 10, y - 5);
+  stemGradient.addColorStop(0, green);
+  stemGradient.addColorStop(1, darkGreen);
+  ctx.fillStyle = stemGradient;
+  ctx.beginPath();
+  ctx.arc(x - 10, y - 10, 5, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Add some highlights to the lemon
+  const highlightGradient = ctx.createRadialGradient(x - 5, y - 5, 0, x - 5, y - 5, 10);
+  highlightGradient.addColorStop(0, white);
+  highlightGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+  ctx.fillStyle = highlightGradient;
+  ctx.beginPath();
+  ctx.arc(x - 5, y - 5, 10, 0, Math.PI * 2);
+  ctx.fill();
 }
+
 
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
