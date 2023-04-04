@@ -13,7 +13,7 @@ lemonImg.src = 'a lemon.png';
 const tomatoImg = new Image();
 tomatoImg.src = 'a tomato.png';
 
-let clickCount = 7;
+let clickCount = 0;
 
 function drawLemon() {
 	const img = (clickCount >= 7 && clickCount % 7 === 0) ? lemonImg : tomatoImg;
