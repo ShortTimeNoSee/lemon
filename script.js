@@ -16,7 +16,7 @@ tomatoImg.src = 'a tomato.png';
 let clickCount = 0;
 
 function drawLemon() {
-	const img = (clickCount >= 7 && clickCount % 7 === 0) ? lemonImg : tomatoImg;
+	const img = (clickCount < 7 || clickCount % 7 !== 0) ? lemonImg : tomatoImg;
 	ctx.drawImage(img, x - 20, y - 20, 40, 40);
 }
 
@@ -50,7 +50,7 @@ setInterval(update, 10);
 
 canvas.addEventListener('click', () => {
 	clickCount++;
-	if (clickCount >= 7 && clickCount % 7 === 0) {
+	if (clickCount === 7) {
 		typedChars.length = 0;
 		drawLemon();
   }
