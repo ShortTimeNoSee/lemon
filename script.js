@@ -13,10 +13,10 @@ lemonImg.src = 'a lemon.png';
 const tomatoImg = new Image();
 tomatoImg.src = 'a tomato.png';
 
-let clickCount = 6;
+let clickCount = 7;
 
 function drawLemon() {
-	const img = (clickCount % 7 === 0) ? tomatoImg : lemonImg;
+	const img = (clickCount >= 7 && clickCount % 7 === 0) ? tomatoImg : lemonImg;
 	ctx.drawImage(img, x - 20, y - 20, 40, 40);
 }
 
@@ -50,14 +50,12 @@ setInterval(update, 10);
 
 canvas.addEventListener('click', () => {
 	clickCount++;
-	if (clickCount % 7 === 0) {
+	if (clickCount >= 7 && clickCount % 7 === 0) {
 		typedChars.length = 0;
 		drawLemon();
-	}
-	if (clickCount % 14 === 0) {
-		clickCount = 0;
-	}
+  }
 });
+
 
 
 document.addEventListener('keydown', (event) => {
