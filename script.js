@@ -16,7 +16,7 @@ tomatoImg.src = 'a tomato.png';
 let clickCount = 7;
 
 function drawLemon() {
-	const img = (clickCount >= 7 && clickCount % 7 === 0) ? tomatoImg : lemonImg;
+	const img = (clickCount >= 7 && clickCount % 7 === 0) ? lemonImg : tomatoImg;
 	ctx.drawImage(img, x - 20, y - 20, 40, 40);
 }
 
